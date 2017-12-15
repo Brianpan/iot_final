@@ -1,0 +1,33 @@
+.row
+	.header
+		h3= "Fail Detection Statistics - SensorID #{current_user.sensor.id}"
+
+	.row
+		.col-md-6
+			.panel.panel-default
+				.panel-heading= "Tracking Map"
+				.panel-body
+					#mapid
+		.col-md-6
+			.panel.panel-default
+				.panel-heading= "Histogram"
+				.panel-body
+	.row
+		.col-md-12
+			.panel.panel-default
+				.panel-heading= "Recent historical records"
+				.panel-body
+					table.table
+						thead
+							tr
+								th="ID"
+								th="Lat"
+								th="Lng"
+								th="Time"
+						tbody
+							- current_user.sensor.sensor_locations.order(created_at: :desc).each do |l|
+								tr
+									td=l.id
+									td=l.lat
+									td=l.lng
+									td=l.created_at

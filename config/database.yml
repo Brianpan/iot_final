@@ -2,9 +2,15 @@ default: &default
   adapter: mysql2
   encoding: utf8
 
+development:
+  <<: *default
+  database: iot
+  username: root
+  password: 31538WWE
+
 production:
   <<: *default
   database: iot
   username: root
-  password: aniarcqweqwe
+  password: 31538WWE
 

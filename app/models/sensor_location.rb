@@ -1,13 +1,15 @@
 # == Schema Information
 #
-# Table name: sensors
+# Table name: sensor_locations
 #
 #  id         :integer          not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  sensor_id  :integer
+#  lng        :float(24)
+#  lat        :float(24)
 #
 
-class Sensor < ApplicationRecord
-	has_many :sensor_locations
-	has_many :users
+class SensorLocation < ApplicationRecord
+	belongs_to :sensor
 end

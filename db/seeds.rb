@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+x = 33.647
+y = -117.841
+
+(0..10).each do |i|
+	tx = x - 0.0001*i
+	SensorLocation.create(sensor_id: 1, lat: tx, lng: y)
+end

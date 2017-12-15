@@ -1,0 +1,13 @@
+nav.navbar.navbar-light.bg-faded
+  a.navbar-brand
+  	= "IOT Team-04"
+  .collapse.navbar-collapse#main-navbar-collapse
+    ul.nav.navbar-nav.navbar-right
+
+      - if current_user
+        li
+          a= current_user.email
+        li= link_to('Sign Out', destroy_user_session_path, :method => :delete)
+
+      - else
+        li= link_to 'Log In', new_user_session_path
