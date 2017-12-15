@@ -5,6 +5,8 @@
 
 
 $(document).ready(->
+  echartDOM = $("#histogram")
+  histogramObj = echarts.init(echartDOM[0])
 
   # map utils
   location_draw = () ->
@@ -18,6 +20,7 @@ $(document).ready(->
         device_id: 1
 
       success: (data) =>
+        # plot map
         currentPoint = data["current"]
         L.marker([currentPoint.x, currentPoint.y]).addTo(mymap).bindPopup("<b>Current location</b>").openPopup()
         for d in data["history"]
@@ -27,6 +30,45 @@ $(document).ready(->
             fillOpacity: 0.7,
             radius: 6
           }).addTo(mymap)
+
+        # plot histogram
+        resp =
+          color: ['#3398DB'],
+          tooltip : {
+              trigger: 'axis',
+              axisPointer : {
+                  type : 'shadow'
+              }
+          },
+          grid: {
+              left: '3%',
+              right: '4%',
+              bottom: '3%',
+              containLabel: true
+          },
+          xAxis : [
+              {
+                  type : 'category',
+                  data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                  axisTick: {
+                      alignWithLabel: true
+                  }
+              }
+          ],
+          yAxis : [
+              {
+                  type : 'value'
+              }
+          ],
+          series : [
+              {
+                  name:'Fallen Counts',
+                  type:'bar',
+                  barWidth: '60%',
+                  data: data["barchart"]
+              }
+          ]
+        histogramObj.setOption(resp)
     )
 
   mymap = L.map('mapid').setView([33.647, -117.841], 16);

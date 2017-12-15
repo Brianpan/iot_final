@@ -10,6 +10,7 @@ class DashboardController < ApplicationController
 		@data["current"] = {"x": last_loc.lat, "y": last_loc.lng}
   		# rest of pts
   		@data["history"] = current_user.history_locations
+  		@data["barchart"] = current_user.history_barchart
   		render json: @data
 	end
 end

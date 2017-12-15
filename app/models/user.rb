@@ -33,4 +33,17 @@ class User < ApplicationRecord
     end
     history_data
   end
+
+  def history_barchart
+    history_barchart = []
+    group_data = sensor.sensor_locations.group("WEEKDAY(created_at)").count
+    (0..6).each do |wday|
+      if group_data[wday].nil?
+        history_barchart << 0
+      else
+        history_barchart << group_data[wday]
+      end
+    end
+    history_barchart
+  end
 end
