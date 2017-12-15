@@ -12,5 +12,7 @@ y = -117.841
 
 (0..10).each do |i|
 	tx = x - 0.0001*i
-	SensorLocation.create(sensor_id: 1, lat: tx, lng: y)
+	ty = y - 0.0001*i
+	created_at = Time.now - i*1.days
+	SensorLocation.create(sensor_id: 1, lat: tx, lng: ty, created_at: created_at, updated_at: created_at)
 end
