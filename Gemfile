@@ -34,6 +34,8 @@ gem 'devise'
 gem 'bootstrap3-rails'
 gem 'echarts-rails'
 gem 'jquery-rails'
+gem 'mailgun_rails'
+gem 'twilio-ruby'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

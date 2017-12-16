@@ -46,4 +46,5 @@ class User < ApplicationRecord
     end
     history_barchart
   end
+
 end
