@@ -1,24 +1,6 @@
-# README
+# UCI compsci244p Into to IOT project
+Fall detection system visualization front-end APP with Twilio SMS notification
+Visualization frequency of single users location and frequency of fall in a week
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Gems: twilio-ruby, devise
+JS: Leaflet, echarts
